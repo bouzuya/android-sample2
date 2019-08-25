@@ -9,15 +9,23 @@
             type="net.bouzuya.sample2.HomeViewModel" />
     </data>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context=".HomeFragment">
 
         <TextView
             android:id="@+id/home_name_text_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:text="@{viewModel.name}" />
-    </FrameLayout>
+
+        <Button
+            android:id="@+id/home_go_to_input_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewModel.goToInput()}"
+            android:text="@string/home_go_to_input_button_text" />
+    </LinearLayout>
 </layout>

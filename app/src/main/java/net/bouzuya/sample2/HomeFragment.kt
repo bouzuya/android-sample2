@@ -6,6 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import net.bouzuya.sample2.HomeFragmentDirections.Companion.actionHomeToInput
 import net.bouzuya.sample2.databinding.HomeFragmentBinding
 
 class HomeFragment : Fragment() {
@@ -21,6 +24,10 @@ class HomeFragment : Fragment() {
         return HomeFragmentBinding.inflate(inflater, container, false).also { binding ->
             binding.lifecycleOwner = this
             binding.viewModel = viewModel
+
+            viewModel.goToInputEvent.observe(this, Observer {
+                findNavController().navigate(actionHomeToInput())
+            })
         }.root
     }
 }

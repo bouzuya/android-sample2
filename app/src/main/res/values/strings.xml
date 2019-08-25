@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Sample2</string>
+    <string name="home_go_to_input_button_text">GO INPUT</string>
 </resources>
