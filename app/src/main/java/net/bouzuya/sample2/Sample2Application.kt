@@ -11,6 +11,12 @@ class Sample2Application : Application() {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T =
             HomeViewModel() as T
     }
+    var inputViewModelFactory = object : ViewModelProvider.Factory {
+        @Suppress("UNCHECKED_CAST")
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T =
+            InputViewModel() as T
+    }
 
     fun providesHomeViewModelFactory(): ViewModelProvider.Factory = homeViewModelFactory
+    fun providesInputViewModelFactory(): ViewModelProvider.Factory = inputViewModelFactory
 }

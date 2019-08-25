@@ -6,4 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 object ServiceLocator {
     fun providesHomeViewModelFactory(context: Context): ViewModelProvider.Factory =
         (context.applicationContext as Sample2Application).providesHomeViewModelFactory()
+
+    fun providesInputViewModelFactory(context: Context): ViewModelProvider.Factory =
+        (context.applicationContext as Sample2Application).providesInputViewModelFactory()
 }
