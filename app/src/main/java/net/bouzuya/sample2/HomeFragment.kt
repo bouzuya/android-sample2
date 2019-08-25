@@ -9,7 +9,9 @@ import androidx.fragment.app.viewModels
 import net.bouzuya.sample2.databinding.HomeFragmentBinding
 
 class HomeFragment : Fragment() {
-    private val viewModel: HomeViewModel by viewModels()
+    private val viewModel: HomeViewModel by viewModels {
+        ServiceLocator.providesHomeViewModelFactory(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
