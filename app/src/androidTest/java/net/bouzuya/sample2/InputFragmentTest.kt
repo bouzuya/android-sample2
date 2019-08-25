@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Before
@@ -13,7 +13,7 @@ import org.junit.Test
 import org.mockito.Mockito.mock
 
 class InputFragmentTest {
-    lateinit var viewModel: InputViewModel
+    private lateinit var viewModel: InputViewModel
 
     @Before
     fun setUp() {
@@ -31,6 +31,11 @@ class InputFragmentTest {
     fun initialView() {
         launchFragmentInContainer<InputFragment>()
 
-        onView(withId(R.id.input_name_text_view)).check(matches(ViewMatchers.isDisplayed()))
+        onView(withId(R.id.input_name_text_view)).check(matches(isDisplayed()))
+        onView(withId(R.id.input_value_edit_text)).check(matches(isDisplayed()))
+        onView(withId(R.id.input_ok_button)).check(matches(isDisplayed()))
     }
+
+    // TODO: update edit text
+    // TODO: press ok button
 }
